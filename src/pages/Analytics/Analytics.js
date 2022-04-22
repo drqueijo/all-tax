@@ -32,7 +32,7 @@ function Analytics() {
               options={category}
               label={'Category'}
               handleChange={setSelectedCategory}
-              selected={selectedCategory}
+              selected={selectedCategory || null}
             />
             <AdvancedSelect 
               options={getProductByFatherId(selectedCategory)}
