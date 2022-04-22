@@ -1,26 +1,33 @@
-import React from 'react'
-import { Select } from 'antd';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 const { Option } = Select;
 
-function AdvancedSelect({options, label}) {
-
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
+function AdvancedSelect({options, label, selected, handleChange}) {
 
   return (
-    <>
-      <h3 className="select-title">{label}</h3>
-      <Select defaultValue="lucy" style={{ width: 120 }} onChange={handleChange}>
-        <Option value="jack">Jack</Option>
-        <Option value="lucy">Lucy</Option>
-        <Option value="disabled" disabled>
-          Disabled
-        </Option>
-        <Option value="Yiminghe">yiminghe</Option>
-      </Select>
-    </>
+    <div className="advanced-select">
+      <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">{label}</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id=""
+            value={selected}
+            label={label}
+            onChange={e => handleChange(e.target.value)}
+          >
+            {options.map((option, i) =>
+              <MenuItem key={option.id} value={option.id}>{option.name}</MenuItem>
+            )}
+          </Select>
+        </FormControl>
+      </Box>
+    </div>
 
   )
 }

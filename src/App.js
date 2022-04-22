@@ -2,6 +2,7 @@ import "./index.scss";
 import { Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Analytics from "./pages/Analytics/Analytics";
+import About from "./pages/About/About";
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
       <Sidebar />
       <Routes>
         <Route path="/" element={<Analytics />} />
-        <Route path="/categories" element={<Analytics />} />
+        <Route path="/categories" element={<About />} />
       </Routes>
     </div>
   );

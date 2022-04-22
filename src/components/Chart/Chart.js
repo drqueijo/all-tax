@@ -5,7 +5,6 @@ import { getSalesData } from '../../services/sales';
 
 function Chart({brandId, brandName}) {
   const chartConfig = useMemo(() => getSalesData(brandId, brandName), [brandId])
-
   return (
     <div style={{width: '1000px'}}>
         <Line data={chartConfig} />

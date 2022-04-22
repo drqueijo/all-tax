@@ -59,4 +59,9 @@ export function getProductByCode(code) {
     return product.find((o) => o.code === code);
 }
 
+export function getProductByFatherId (id) {
+    if(!id) return [];
+    return product.filter((o) => o.categoryId === id)
+}
+
 export default product;

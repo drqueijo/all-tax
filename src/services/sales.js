@@ -3,7 +3,7 @@ import brand from './brand';
 import months from './months';
 
 
-export function getSalesData (brandId) {
+export function getSalesData (brandId, name) {
     let salesInfo = sales.filter((sale) => sale.brandId === brandId )
     salesInfo = salesInfo.map((sale) => sale.sales)
 
@@ -11,7 +11,7 @@ export function getSalesData (brandId) {
         labels: months,
         datasets: [
             {
-                label: "Sales",
+                label: name || '',
                 data: salesInfo,
                 backgroundColor: [
                     "rgba(75,192,192,1)",

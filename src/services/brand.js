@@ -164,8 +164,14 @@ const brand = [
 
 ];
 
-export function getBrandByCode(code) {
-    return brand.find((o) => o.code === code);
+export function getBrandById(id) {
+    if(!id) return ''
+    return brand.find((o) => o.id === id);
+}
+
+export function getBrandByFatherId (id) {
+  if(!id) return [];
+  return brand.filter((o) => o.productId === id)
 }
 
 export default brand

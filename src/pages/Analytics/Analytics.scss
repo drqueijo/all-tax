@@ -2,4 +2,8 @@
     width: 100%;
     display: grid;
     place-items: center;
+
+    &__select {
+        display: flex;
+    }
 }
