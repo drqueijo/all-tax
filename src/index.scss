@@ -7,6 +7,10 @@ html, body {
 }
 
 @import './styles/global.scss';
+@import './app.scss';
+
+/* pages */
+@import './pages/Analytics/Analytics.scss';
 
 /* components */
 @import './components/Sidebar/Sidebar.scss';

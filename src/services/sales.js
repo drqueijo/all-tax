@@ -1,1642 +1,1993 @@
+/* eslint-disable array-callback-return */
 import brand from './brand';
+import months from './months';
+
+
+export function getSalesData (brandId) {
+    let salesInfo = sales.filter((sale) => sale.brandId === brandId )
+    salesInfo = salesInfo.map((sale) => sale.sales)
+
+    return {
+        labels: months,
+        datasets: [
+            {
+                label: "Sales",
+                data: salesInfo,
+                backgroundColor: [
+                    "rgba(75,192,192,1)",
+                    "#ecf0f1",
+                    "#50AF95",
+                    "#f3ba2f",
+                    "#2a71d0",
+                ],
+                borderColor: "black",
+                borderWidth: 2,
+            },
+        ],
+    }
+}
+
+export function generateSales() {
+    const salesArray = []
+    brand.map((o) => {
+        for(var i = 0; i <= 11 ; i++){
+            let sale = {
+                month: months[i],
+                brandId: o.id,
+                productId: o.productId,
+                sales: parseInt(Math.random() * 1000)
+            }
+            salesArray.push(sale)
+        }
+    })   
+    return salesArray
+}
 
 const sales = [
     {
-        "month": 5,
-        "brandId": "marcamacarrao1",
-        "productId": "macarrao"
+        month: "Jan",
+        brandId: "marcamacarrao1",
+        productId: "macarrao",
+        sales: 384
     },
     {
-        "month": 2,
-        "brandId": "marcamacarrao2",
-        "productId": "macarrao"
+        month: "Feb",
+        brandId: "marcamacarrao1",
+        productId: "macarrao",
+        sales: 195
     },
     {
-        "month": 8,
-        "brandId": "marcamacarrao3",
-        "productId": "macarrao"
+        month: "Mar",
+        brandId: "marcamacarrao1",
+        productId: "macarrao",
+        sales: 946
     },
     {
-        "month": 2,
-        "brandId": "marcamaca1",
-        "productId": "maca"
+        month: "Apr",
+        brandId: "marcamacarrao1",
+        productId: "macarrao",
+        sales: 357
     },
     {
-        "month": 10,
-        "brandId": "marcamaca2",
-        "productId": "maca"
+        month: "May",
+        brandId: "marcamacarrao1",
+        productId: "macarrao",
+        sales: 656
     },
     {
-        "month": 10,
-        "brandId": "marcamaca3",
-        "productId": "maca"
+        month: "Jun",
+        brandId: "marcamacarrao1",
+        productId: "macarrao",
+        sales: 179
     },
     {
-        "month": 1,
-        "brandId": "marcacarne1",
-        "productId": "carne"
+        month: "Jul",
+        brandId: "marcamacarrao1",
+        productId: "macarrao",
+        sales: 795
     },
     {
-        "month": 3,
-        "brandId": "marcacarne2",
-        "productId": "carne"
+        month: "Aug",
+        brandId: "marcamacarrao1",
+        productId: "macarrao",
+        sales: 876
     },
     {
-        "month": 9,
-        "brandId": "marcacarne3",
-        "productId": "carne"
+        month: "Sep",
+        brandId: "marcamacarrao1",
+        productId: "macarrao",
+        sales: 528
     },
     {
-        "month": 2,
-        "brandId": "marcacamisa1",
-        "productId": "camisa"
+        month: "Oct",
+        brandId: "marcamacarrao1",
+        productId: "macarrao",
+        sales: 208
     },
     {
-        "month": 3,
-        "brandId": "marcacamisa2",
-        "productId": "camisa"
+        month: "Nov",
+        brandId: "marcamacarrao1",
+        productId: "macarrao",
+        sales: 472
     },
     {
-        "month": 8,
-        "brandId": "marcacamisa3",
-        "productId": "camisa"
+        month: "Dec",
+        brandId: "marcamacarrao1",
+        productId: "macarrao",
+        sales: 152
     },
     {
-        "month": 2,
-        "brandId": "marcacalca1",
-        "productId": "calca"
+        month: "Jan",
+        brandId: "marcamacarrao2",
+        productId: "macarrao",
+        sales: 394
     },
     {
-        "month": 11,
-        "brandId": "marcacalca2",
-        "productId": "calca"
+        month: "Feb",
+        brandId: "marcamacarrao2",
+        productId: "macarrao",
+        sales: 80
     },
     {
-        "month": 3,
-        "brandId": "marcacalca3",
-        "productId": "calca"
+        month: "Mar",
+        brandId: "marcamacarrao2",
+        productId: "macarrao",
+        sales: 64
     },
     {
-        "month": 3,
-        "brandId": "marcasapato1",
-        "productId": "sapato"
+        month: "Apr",
+        brandId: "marcamacarrao2",
+        productId: "macarrao",
+        sales: 656
     },
     {
-        "month": 6,
-        "brandId": "marcasapato2",
-        "productId": "sapato"
+        month: "May",
+        brandId: "marcamacarrao2",
+        productId: "macarrao",
+        sales: 813
     },
     {
-        "month": 11,
-        "brandId": "marcasapato3",
-        "productId": "sapato"
+        month: "Jun",
+        brandId: "marcamacarrao2",
+        productId: "macarrao",
+        sales: 211
     },
     {
-        "month": 1,
-        "brandId": "marcasagua1",
-        "productId": "agua"
+        month: "Jul",
+        brandId: "marcamacarrao2",
+        productId: "macarrao",
+        sales: 67
     },
     {
-        "month": 11,
-        "brandId": "marcaagua2",
-        "productId": "agua"
+        month: "Aug",
+        brandId: "marcamacarrao2",
+        productId: "macarrao",
+        sales: 462
     },
     {
-        "month": 4,
-        "brandId": "marcaagua3",
-        "productId": "agua"
+        month: "Sep",
+        brandId: "marcamacarrao2",
+        productId: "macarrao",
+        sales: 437
     },
     {
-        "month": 5,
-        "brandId": "marcasuco1",
-        "productId": "suco"
+        month: "Oct",
+        brandId: "marcamacarrao2",
+        productId: "macarrao",
+        sales: 782
     },
     {
-        "month": 3,
-        "brandId": "marcasuco2",
-        "productId": "suco"
+        month: "Nov",
+        brandId: "marcamacarrao2",
+        productId: "macarrao",
+        sales: 966
     },
     {
-        "month": 3,
-        "brandId": "marcasuco3",
-        "productId": "suco"
+        month: "Dec",
+        brandId: "marcamacarrao2",
+        productId: "macarrao",
+        sales: 228
     },
     {
-        "month": 7,
-        "brandId": "marcaleite1",
-        "productId": "leite"
+        month: "Jan",
+        brandId: "marcamacarrao3",
+        productId: "macarrao",
+        sales: 634
     },
     {
-        "month": 3,
-        "brandId": "marcaleite2",
-        "productId": "leite"
+        month: "Feb",
+        brandId: "marcamacarrao3",
+        productId: "macarrao",
+        sales: 593
     },
     {
-        "month": 10,
-        "brandId": "marcaleite3",
-        "productId": "leite"
+        month: "Mar",
+        brandId: "marcamacarrao3",
+        productId: "macarrao",
+        sales: 920
     },
     {
-        "month": 5,
-        "brandId": "marcamacarrao1",
-        "productId": "macarrao"
+        month: "Apr",
+        brandId: "marcamacarrao3",
+        productId: "macarrao",
+        sales: 163
     },
     {
-        "month": 1,
-        "brandId": "marcamacarrao2",
-        "productId": "macarrao"
+        month: "May",
+        brandId: "marcamacarrao3",
+        productId: "macarrao",
+        sales: 429
     },
     {
-        "month": 11,
-        "brandId": "marcamacarrao3",
-        "productId": "macarrao"
+        month: "Jun",
+        brandId: "marcamacarrao3",
+        productId: "macarrao",
+        sales: 565
     },
     {
-        "month": 7,
-        "brandId": "marcamaca1",
-        "productId": "maca"
+        month: "Jul",
+        brandId: "marcamacarrao3",
+        productId: "macarrao",
+        sales: 0
     },
     {
-        "month": 1,
-        "brandId": "marcamaca2",
-        "productId": "maca"
+        month: "Aug",
+        brandId: "marcamacarrao3",
+        productId: "macarrao",
+        sales: 99
     },
     {
-        "month": 1,
-        "brandId": "marcamaca3",
-        "productId": "maca"
+        month: "Sep",
+        brandId: "marcamacarrao3",
+        productId: "macarrao",
+        sales: 451
     },
     {
-        "month": 7,
-        "brandId": "marcacarne1",
-        "productId": "carne"
+        month: "Oct",
+        brandId: "marcamacarrao3",
+        productId: "macarrao",
+        sales: 131
     },
     {
-        "month": 11,
-        "brandId": "marcacarne2",
-        "productId": "carne"
+        month: "Nov",
+        brandId: "marcamacarrao3",
+        productId: "macarrao",
+        sales: 680
     },
     {
-        "month": 8,
-        "brandId": "marcacarne3",
-        "productId": "carne"
+        month: "Dec",
+        brandId: "marcamacarrao3",
+        productId: "macarrao",
+        sales: 923
     },
     {
-        "month": 8,
-        "brandId": "marcacamisa1",
-        "productId": "camisa"
+        month: "Jan",
+        brandId: "marcamaca1",
+        productId: "maca",
+        sales: 577
     },
     {
-        "month": 9,
-        "brandId": "marcacamisa2",
-        "productId": "camisa"
+        month: "Feb",
+        brandId: "marcamaca1",
+        productId: "maca",
+        sales: 199
     },
     {
-        "month": 10,
-        "brandId": "marcacamisa3",
-        "productId": "camisa"
+        month: "Mar",
+        brandId: "marcamaca1",
+        productId: "maca",
+        sales: 201
     },
     {
-        "month": 6,
-        "brandId": "marcacalca1",
-        "productId": "calca"
+        month: "Apr",
+        brandId: "marcamaca1",
+        productId: "maca",
+        sales: 314
     },
     {
-        "month": 4,
-        "brandId": "marcacalca2",
-        "productId": "calca"
+        month: "May",
+        brandId: "marcamaca1",
+        productId: "maca",
+        sales: 833
     },
     {
-        "month": 1,
-        "brandId": "marcacalca3",
-        "productId": "calca"
+        month: "Jun",
+        brandId: "marcamaca1",
+        productId: "maca",
+        sales: 574
     },
     {
-        "month": 1,
-        "brandId": "marcasapato1",
-        "productId": "sapato"
+        month: "Jul",
+        brandId: "marcamaca1",
+        productId: "maca",
+        sales: 643
     },
     {
-        "month": 6,
-        "brandId": "marcasapato2",
-        "productId": "sapato"
+        month: "Aug",
+        brandId: "marcamaca1",
+        productId: "maca",
+        sales: 807
     },
     {
-        "month": 2,
-        "brandId": "marcasapato3",
-        "productId": "sapato"
+        month: "Sep",
+        brandId: "marcamaca1",
+        productId: "maca",
+        sales: 300
     },
     {
-        "month": 6,
-        "brandId": "marcasagua1",
-        "productId": "agua"
+        month: "Oct",
+        brandId: "marcamaca1",
+        productId: "maca",
+        sales: 854
     },
     {
-        "month": 6,
-        "brandId": "marcaagua2",
-        "productId": "agua"
+        month: "Nov",
+        brandId: "marcamaca1",
+        productId: "maca",
+        sales: 113
     },
     {
-        "month": 1,
-        "brandId": "marcaagua3",
-        "productId": "agua"
+        month: "Dec",
+        brandId: "marcamaca1",
+        productId: "maca",
+        sales: 32
     },
     {
-        "month": 10,
-        "brandId": "marcasuco1",
-        "productId": "suco"
+        month: "Jan",
+        brandId: "marcamaca2",
+        productId: "maca",
+        sales: 837
     },
     {
-        "month": 3,
-        "brandId": "marcasuco2",
-        "productId": "suco"
+        month: "Feb",
+        brandId: "marcamaca2",
+        productId: "maca",
+        sales: 138
     },
     {
-        "month": 7,
-        "brandId": "marcasuco3",
-        "productId": "suco"
+        month: "Mar",
+        brandId: "marcamaca2",
+        productId: "maca",
+        sales: 174
     },
     {
-        "month": 10,
-        "brandId": "marcaleite1",
-        "productId": "leite"
+        month: "Apr",
+        brandId: "marcamaca2",
+        productId: "maca",
+        sales: 7
     },
     {
-        "month": 6,
-        "brandId": "marcaleite2",
-        "productId": "leite"
+        month: "May",
+        brandId: "marcamaca2",
+        productId: "maca",
+        sales: 578
     },
     {
-        "month": 6,
-        "brandId": "marcaleite3",
-        "productId": "leite"
+        month: "Jun",
+        brandId: "marcamaca2",
+        productId: "maca",
+        sales: 222
     },
     {
-        "month": 2,
-        "brandId": "marcamacarrao1",
-        "productId": "macarrao"
+        month: "Jul",
+        brandId: "marcamaca2",
+        productId: "maca",
+        sales: 853
     },
     {
-        "month": 1,
-        "brandId": "marcamacarrao2",
-        "productId": "macarrao"
+        month: "Aug",
+        brandId: "marcamaca2",
+        productId: "maca",
+        sales: 554
     },
     {
-        "month": 2,
-        "brandId": "marcamacarrao3",
-        "productId": "macarrao"
+        month: "Sep",
+        brandId: "marcamaca2",
+        productId: "maca",
+        sales: 200
     },
     {
-        "month": 9,
-        "brandId": "marcamaca1",
-        "productId": "maca"
+        month: "Oct",
+        brandId: "marcamaca2",
+        productId: "maca",
+        sales: 97
     },
     {
-        "month": 8,
-        "brandId": "marcamaca2",
-        "productId": "maca"
+        month: "Nov",
+        brandId: "marcamaca2",
+        productId: "maca",
+        sales: 639
     },
     {
-        "month": 2,
-        "brandId": "marcamaca3",
-        "productId": "maca"
+        month: "Dec",
+        brandId: "marcamaca2",
+        productId: "maca",
+        sales: 762
     },
     {
-        "month": 5,
-        "brandId": "marcacarne1",
-        "productId": "carne"
+        month: "Jan",
+        brandId: "marcamaca3",
+        productId: "maca",
+        sales: 806
     },
     {
-        "month": 8,
-        "brandId": "marcacarne2",
-        "productId": "carne"
+        month: "Feb",
+        brandId: "marcamaca3",
+        productId: "maca",
+        sales: 455
     },
     {
-        "month": 8,
-        "brandId": "marcacarne3",
-        "productId": "carne"
+        month: "Mar",
+        brandId: "marcamaca3",
+        productId: "maca",
+        sales: 821
     },
     {
-        "month": 4,
-        "brandId": "marcacamisa1",
-        "productId": "camisa"
+        month: "Apr",
+        brandId: "marcamaca3",
+        productId: "maca",
+        sales: 443
     },
     {
-        "month": 8,
-        "brandId": "marcacamisa2",
-        "productId": "camisa"
+        month: "May",
+        brandId: "marcamaca3",
+        productId: "maca",
+        sales: 469
     },
     {
-        "month": 11,
-        "brandId": "marcacamisa3",
-        "productId": "camisa"
+        month: "Jun",
+        brandId: "marcamaca3",
+        productId: "maca",
+        sales: 635
     },
     {
-        "month": 10,
-        "brandId": "marcacalca1",
-        "productId": "calca"
+        month: "Jul",
+        brandId: "marcamaca3",
+        productId: "maca",
+        sales: 109
     },
     {
-        "month": 10,
-        "brandId": "marcacalca2",
-        "productId": "calca"
+        month: "Aug",
+        brandId: "marcamaca3",
+        productId: "maca",
+        sales: 822
     },
     {
-        "month": 11,
-        "brandId": "marcacalca3",
-        "productId": "calca"
+        month: "Sep",
+        brandId: "marcamaca3",
+        productId: "maca",
+        sales: 423
     },
     {
-        "month": 3,
-        "brandId": "marcasapato1",
-        "productId": "sapato"
+        month: "Oct",
+        brandId: "marcamaca3",
+        productId: "maca",
+        sales: 568
     },
     {
-        "month": 2,
-        "brandId": "marcasapato2",
-        "productId": "sapato"
+        month: "Nov",
+        brandId: "marcamaca3",
+        productId: "maca",
+        sales: 230
     },
     {
-        "month": 8,
-        "brandId": "marcasapato3",
-        "productId": "sapato"
+        month: "Dec",
+        brandId: "marcamaca3",
+        productId: "maca",
+        sales: 827
     },
     {
-        "month": 5,
-        "brandId": "marcasagua1",
-        "productId": "agua"
+        month: "Jan",
+        brandId: "marcacarne1",
+        productId: "carne",
+        sales: 523
     },
     {
-        "month": 5,
-        "brandId": "marcaagua2",
-        "productId": "agua"
+        month: "Feb",
+        brandId: "marcacarne1",
+        productId: "carne",
+        sales: 398
     },
     {
-        "month": 11,
-        "brandId": "marcaagua3",
-        "productId": "agua"
+        month: "Mar",
+        brandId: "marcacarne1",
+        productId: "carne",
+        sales: 820
     },
     {
-        "month": 2,
-        "brandId": "marcasuco1",
-        "productId": "suco"
+        month: "Apr",
+        brandId: "marcacarne1",
+        productId: "carne",
+        sales: 550
     },
     {
-        "month": 11,
-        "brandId": "marcasuco2",
-        "productId": "suco"
+        month: "May",
+        brandId: "marcacarne1",
+        productId: "carne",
+        sales: 643
     },
     {
-        "month": 3,
-        "brandId": "marcasuco3",
-        "productId": "suco"
+        month: "Jun",
+        brandId: "marcacarne1",
+        productId: "carne",
+        sales: 41
     },
     {
-        "month": 10,
-        "brandId": "marcaleite1",
-        "productId": "leite"
+        month: "Jul",
+        brandId: "marcacarne1",
+        productId: "carne",
+        sales: 474
     },
     {
-        "month": 7,
-        "brandId": "marcaleite2",
-        "productId": "leite"
+        month: "Aug",
+        brandId: "marcacarne1",
+        productId: "carne",
+        sales: 725
     },
     {
-        "month": 7,
-        "brandId": "marcaleite3",
-        "productId": "leite"
+        month: "Sep",
+        brandId: "marcacarne1",
+        productId: "carne",
+        sales: 186
     },
     {
-        "month": 2,
-        "brandId": "marcamacarrao1",
-        "productId": "macarrao"
+        month: "Oct",
+        brandId: "marcacarne1",
+        productId: "carne",
+        sales: 782
     },
     {
-        "month": 10,
-        "brandId": "marcamacarrao2",
-        "productId": "macarrao"
+        month: "Nov",
+        brandId: "marcacarne1",
+        productId: "carne",
+        sales: 760
     },
     {
-        "month": 9,
-        "brandId": "marcamacarrao3",
-        "productId": "macarrao"
+        month: "Dec",
+        brandId: "marcacarne1",
+        productId: "carne",
+        sales: 449
     },
     {
-        "month": 11,
-        "brandId": "marcamaca1",
-        "productId": "maca"
+        month: "Jan",
+        brandId: "marcacarne2",
+        productId: "carne",
+        sales: 293
     },
     {
-        "month": 11,
-        "brandId": "marcamaca2",
-        "productId": "maca"
+        month: "Feb",
+        brandId: "marcacarne2",
+        productId: "carne",
+        sales: 432
     },
     {
-        "month": 10,
-        "brandId": "marcamaca3",
-        "productId": "maca"
+        month: "Mar",
+        brandId: "marcacarne2",
+        productId: "carne",
+        sales: 47
     },
     {
-        "month": 9,
-        "brandId": "marcacarne1",
-        "productId": "carne"
+        month: "Apr",
+        brandId: "marcacarne2",
+        productId: "carne",
+        sales: 380
     },
     {
-        "month": 9,
-        "brandId": "marcacarne2",
-        "productId": "carne"
+        month: "May",
+        brandId: "marcacarne2",
+        productId: "carne",
+        sales: 371
     },
     {
-        "month": 7,
-        "brandId": "marcacarne3",
-        "productId": "carne"
+        month: "Jun",
+        brandId: "marcacarne2",
+        productId: "carne",
+        sales: 296
     },
     {
-        "month": 2,
-        "brandId": "marcacamisa1",
-        "productId": "camisa"
+        month: "Jul",
+        brandId: "marcacarne2",
+        productId: "carne",
+        sales: 102
     },
     {
-        "month": 9,
-        "brandId": "marcacamisa2",
-        "productId": "camisa"
+        month: "Aug",
+        brandId: "marcacarne2",
+        productId: "carne",
+        sales: 366
     },
     {
-        "month": 2,
-        "brandId": "marcacamisa3",
-        "productId": "camisa"
+        month: "Sep",
+        brandId: "marcacarne2",
+        productId: "carne",
+        sales: 969
     },
     {
-        "month": 10,
-        "brandId": "marcacalca1",
-        "productId": "calca"
+        month: "Oct",
+        brandId: "marcacarne2",
+        productId: "carne",
+        sales: 444
     },
     {
-        "month": 1,
-        "brandId": "marcacalca2",
-        "productId": "calca"
+        month: "Nov",
+        brandId: "marcacarne2",
+        productId: "carne",
+        sales: 945
     },
     {
-        "month": 2,
-        "brandId": "marcacalca3",
-        "productId": "calca"
+        month: "Dec",
+        brandId: "marcacarne2",
+        productId: "carne",
+        sales: 640
     },
     {
-        "month": 8,
-        "brandId": "marcasapato1",
-        "productId": "sapato"
+        month: "Jan",
+        brandId: "marcacarne3",
+        productId: "carne",
+        sales: 212
     },
     {
-        "month": 9,
-        "brandId": "marcasapato2",
-        "productId": "sapato"
+        month: "Feb",
+        brandId: "marcacarne3",
+        productId: "carne",
+        sales: 561
     },
     {
-        "month": 9,
-        "brandId": "marcasapato3",
-        "productId": "sapato"
+        month: "Mar",
+        brandId: "marcacarne3",
+        productId: "carne",
+        sales: 642
     },
     {
-        "month": 6,
-        "brandId": "marcasagua1",
-        "productId": "agua"
+        month: "Apr",
+        brandId: "marcacarne3",
+        productId: "carne",
+        sales: 851
     },
     {
-        "month": 8,
-        "brandId": "marcaagua2",
-        "productId": "agua"
+        month: "May",
+        brandId: "marcacarne3",
+        productId: "carne",
+        sales: 726
     },
     {
-        "month": 10,
-        "brandId": "marcaagua3",
-        "productId": "agua"
+        month: "Jun",
+        brandId: "marcacarne3",
+        productId: "carne",
+        sales: 847
     },
     {
-        "month": 9,
-        "brandId": "marcasuco1",
-        "productId": "suco"
+        month: "Jul",
+        brandId: "marcacarne3",
+        productId: "carne",
+        sales: 68
     },
     {
-        "month": 3,
-        "brandId": "marcasuco2",
-        "productId": "suco"
+        month: "Aug",
+        brandId: "marcacarne3",
+        productId: "carne",
+        sales: 860
     },
     {
-        "month": 9,
-        "brandId": "marcasuco3",
-        "productId": "suco"
+        month: "Sep",
+        brandId: "marcacarne3",
+        productId: "carne",
+        sales: 388
     },
     {
-        "month": 4,
-        "brandId": "marcaleite1",
-        "productId": "leite"
+        month: "Oct",
+        brandId: "marcacarne3",
+        productId: "carne",
+        sales: 82
     },
     {
-        "month": 5,
-        "brandId": "marcaleite2",
-        "productId": "leite"
+        month: "Nov",
+        brandId: "marcacarne3",
+        productId: "carne",
+        sales: 404
     },
     {
-        "month": 6,
-        "brandId": "marcaleite3",
-        "productId": "leite"
+        month: "Dec",
+        brandId: "marcacarne3",
+        productId: "carne",
+        sales: 926
     },
     {
-        "month": 7,
-        "brandId": "marcamacarrao1",
-        "productId": "macarrao"
+        month: "Jan",
+        brandId: "marcacamisa1",
+        productId: "camisa",
+        sales: 276
     },
     {
-        "month": 10,
-        "brandId": "marcamacarrao2",
-        "productId": "macarrao"
+        month: "Feb",
+        brandId: "marcacamisa1",
+        productId: "camisa",
+        sales: 958
     },
     {
-        "month": 10,
-        "brandId": "marcamacarrao3",
-        "productId": "macarrao"
+        month: "Mar",
+        brandId: "marcacamisa1",
+        productId: "camisa",
+        sales: 193
     },
     {
-        "month": 3,
-        "brandId": "marcamaca1",
-        "productId": "maca"
+        month: "Apr",
+        brandId: "marcacamisa1",
+        productId: "camisa",
+        sales: 49
     },
     {
-        "month": 9,
-        "brandId": "marcamaca2",
-        "productId": "maca"
+        month: "May",
+        brandId: "marcacamisa1",
+        productId: "camisa",
+        sales: 122
     },
     {
-        "month": 1,
-        "brandId": "marcamaca3",
-        "productId": "maca"
+        month: "Jun",
+        brandId: "marcacamisa1",
+        productId: "camisa",
+        sales: 814
     },
     {
-        "month": 10,
-        "brandId": "marcacarne1",
-        "productId": "carne"
+        month: "Jul",
+        brandId: "marcacamisa1",
+        productId: "camisa",
+        sales: 814
     },
     {
-        "month": 4,
-        "brandId": "marcacarne2",
-        "productId": "carne"
+        month: "Aug",
+        brandId: "marcacamisa1",
+        productId: "camisa",
+        sales: 908
     },
     {
-        "month": 4,
-        "brandId": "marcacarne3",
-        "productId": "carne"
+        month: "Sep",
+        brandId: "marcacamisa1",
+        productId: "camisa",
+        sales: 264
     },
     {
-        "month": 5,
-        "brandId": "marcacamisa1",
-        "productId": "camisa"
+        month: "Oct",
+        brandId: "marcacamisa1",
+        productId: "camisa",
+        sales: 985
     },
     {
-        "month": 5,
-        "brandId": "marcacamisa2",
-        "productId": "camisa"
+        month: "Nov",
+        brandId: "marcacamisa1",
+        productId: "camisa",
+        sales: 205
     },
     {
-        "month": 9,
-        "brandId": "marcacamisa3",
-        "productId": "camisa"
+        month: "Dec",
+        brandId: "marcacamisa1",
+        productId: "camisa",
+        sales: 697
     },
     {
-        "month": 6,
-        "brandId": "marcacalca1",
-        "productId": "calca"
+        month: "Jan",
+        brandId: "marcacamisa2",
+        productId: "camisa",
+        sales: 705
     },
     {
-        "month": 7,
-        "brandId": "marcacalca2",
-        "productId": "calca"
+        month: "Feb",
+        brandId: "marcacamisa2",
+        productId: "camisa",
+        sales: 11
     },
     {
-        "month": 11,
-        "brandId": "marcacalca3",
-        "productId": "calca"
+        month: "Mar",
+        brandId: "marcacamisa2",
+        productId: "camisa",
+        sales: 983
     },
     {
-        "month": 3,
-        "brandId": "marcasapato1",
-        "productId": "sapato"
+        month: "Apr",
+        brandId: "marcacamisa2",
+        productId: "camisa",
+        sales: 154
     },
     {
-        "month": 9,
-        "brandId": "marcasapato2",
-        "productId": "sapato"
+        month: "May",
+        brandId: "marcacamisa2",
+        productId: "camisa",
+        sales: 119
     },
     {
-        "month": 5,
-        "brandId": "marcasapato3",
-        "productId": "sapato"
+        month: "Jun",
+        brandId: "marcacamisa2",
+        productId: "camisa",
+        sales: 596
     },
     {
-        "month": 4,
-        "brandId": "marcasagua1",
-        "productId": "agua"
+        month: "Jul",
+        brandId: "marcacamisa2",
+        productId: "camisa",
+        sales: 486
     },
     {
-        "month": 5,
-        "brandId": "marcaagua2",
-        "productId": "agua"
+        month: "Aug",
+        brandId: "marcacamisa2",
+        productId: "camisa",
+        sales: 174
     },
     {
-        "month": 8,
-        "brandId": "marcaagua3",
-        "productId": "agua"
+        month: "Sep",
+        brandId: "marcacamisa2",
+        productId: "camisa",
+        sales: 681
     },
     {
-        "month": 6,
-        "brandId": "marcasuco1",
-        "productId": "suco"
+        month: "Oct",
+        brandId: "marcacamisa2",
+        productId: "camisa",
+        sales: 312
     },
     {
-        "month": 7,
-        "brandId": "marcasuco2",
-        "productId": "suco"
+        month: "Nov",
+        brandId: "marcacamisa2",
+        productId: "camisa",
+        sales: 199
     },
     {
-        "month": 6,
-        "brandId": "marcasuco3",
-        "productId": "suco"
+        month: "Dec",
+        brandId: "marcacamisa2",
+        productId: "camisa",
+        sales: 547
     },
     {
-        "month": 8,
-        "brandId": "marcaleite1",
-        "productId": "leite"
+        month: "Jan",
+        brandId: "marcacamisa3",
+        productId: "camisa",
+        sales: 988
     },
     {
-        "month": 2,
-        "brandId": "marcaleite2",
-        "productId": "leite"
+        month: "Feb",
+        brandId: "marcacamisa3",
+        productId: "camisa",
+        sales: 608
     },
     {
-        "month": 6,
-        "brandId": "marcaleite3",
-        "productId": "leite"
+        month: "Mar",
+        brandId: "marcacamisa3",
+        productId: "camisa",
+        sales: 406
     },
     {
-        "month": 2,
-        "brandId": "marcamacarrao1",
-        "productId": "macarrao"
+        month: "Apr",
+        brandId: "marcacamisa3",
+        productId: "camisa",
+        sales: 764
     },
     {
-        "month": 3,
-        "brandId": "marcamacarrao2",
-        "productId": "macarrao"
+        month: "May",
+        brandId: "marcacamisa3",
+        productId: "camisa",
+        sales: 158
     },
     {
-        "month": 2,
-        "brandId": "marcamacarrao3",
-        "productId": "macarrao"
+        month: "Jun",
+        brandId: "marcacamisa3",
+        productId: "camisa",
+        sales: 7
     },
     {
-        "month": 4,
-        "brandId": "marcamaca1",
-        "productId": "maca"
+        month: "Jul",
+        brandId: "marcacamisa3",
+        productId: "camisa",
+        sales: 671
     },
     {
-        "month": 2,
-        "brandId": "marcamaca2",
-        "productId": "maca"
+        month: "Aug",
+        brandId: "marcacamisa3",
+        productId: "camisa",
+        sales: 338
     },
     {
-        "month": 11,
-        "brandId": "marcamaca3",
-        "productId": "maca"
+        month: "Sep",
+        brandId: "marcacamisa3",
+        productId: "camisa",
+        sales: 407
     },
     {
-        "month": 1,
-        "brandId": "marcacarne1",
-        "productId": "carne"
+        month: "Oct",
+        brandId: "marcacamisa3",
+        productId: "camisa",
+        sales: 231
     },
     {
-        "month": 10,
-        "brandId": "marcacarne2",
-        "productId": "carne"
+        month: "Nov",
+        brandId: "marcacamisa3",
+        productId: "camisa",
+        sales: 42
     },
     {
-        "month": 2,
-        "brandId": "marcacarne3",
-        "productId": "carne"
+        month: "Dec",
+        brandId: "marcacamisa3",
+        productId: "camisa",
+        sales: 171
     },
     {
-        "month": 6,
-        "brandId": "marcacamisa1",
-        "productId": "camisa"
+        month: "Jan",
+        brandId: "marcacalca1",
+        productId: "calca",
+        sales: 98
     },
     {
-        "month": 1,
-        "brandId": "marcacamisa2",
-        "productId": "camisa"
+        month: "Feb",
+        brandId: "marcacalca1",
+        productId: "calca",
+        sales: 651
     },
     {
-        "month": 11,
-        "brandId": "marcacamisa3",
-        "productId": "camisa"
+        month: "Mar",
+        brandId: "marcacalca1",
+        productId: "calca",
+        sales: 998
     },
     {
-        "month": 5,
-        "brandId": "marcacalca1",
-        "productId": "calca"
+        month: "Apr",
+        brandId: "marcacalca1",
+        productId: "calca",
+        sales: 129
     },
     {
-        "month": 9,
-        "brandId": "marcacalca2",
-        "productId": "calca"
+        month: "May",
+        brandId: "marcacalca1",
+        productId: "calca",
+        sales: 710
     },
     {
-        "month": 5,
-        "brandId": "marcacalca3",
-        "productId": "calca"
+        month: "Jun",
+        brandId: "marcacalca1",
+        productId: "calca",
+        sales: 887
     },
     {
-        "month": 1,
-        "brandId": "marcasapato1",
-        "productId": "sapato"
+        month: "Jul",
+        brandId: "marcacalca1",
+        productId: "calca",
+        sales: 183
     },
     {
-        "month": 10,
-        "brandId": "marcasapato2",
-        "productId": "sapato"
+        month: "Aug",
+        brandId: "marcacalca1",
+        productId: "calca",
+        sales: 371
     },
     {
-        "month": 5,
-        "brandId": "marcasapato3",
-        "productId": "sapato"
+        month: "Sep",
+        brandId: "marcacalca1",
+        productId: "calca",
+        sales: 674
     },
     {
-        "month": 2,
-        "brandId": "marcasagua1",
-        "productId": "agua"
+        month: "Oct",
+        brandId: "marcacalca1",
+        productId: "calca",
+        sales: 78
     },
     {
-        "month": 1,
-        "brandId": "marcaagua2",
-        "productId": "agua"
+        month: "Nov",
+        brandId: "marcacalca1",
+        productId: "calca",
+        sales: 295
     },
     {
-        "month": 10,
-        "brandId": "marcaagua3",
-        "productId": "agua"
+        month: "Dec",
+        brandId: "marcacalca1",
+        productId: "calca",
+        sales: 939
     },
     {
-        "month": 1,
-        "brandId": "marcasuco1",
-        "productId": "suco"
+        month: "Jan",
+        brandId: "marcacalca2",
+        productId: "calca",
+        sales: 837
     },
     {
-        "month": 10,
-        "brandId": "marcasuco2",
-        "productId": "suco"
+        month: "Feb",
+        brandId: "marcacalca2",
+        productId: "calca",
+        sales: 193
     },
     {
-        "month": 9,
-        "brandId": "marcasuco3",
-        "productId": "suco"
+        month: "Mar",
+        brandId: "marcacalca2",
+        productId: "calca",
+        sales: 325
     },
     {
-        "month": 5,
-        "brandId": "marcaleite1",
-        "productId": "leite"
+        month: "Apr",
+        brandId: "marcacalca2",
+        productId: "calca",
+        sales: 88
     },
     {
-        "month": 3,
-        "brandId": "marcaleite2",
-        "productId": "leite"
+        month: "May",
+        brandId: "marcacalca2",
+        productId: "calca",
+        sales: 281
     },
     {
-        "month": 11,
-        "brandId": "marcaleite3",
-        "productId": "leite"
+        month: "Jun",
+        brandId: "marcacalca2",
+        productId: "calca",
+        sales: 833
     },
     {
-        "month": 10,
-        "brandId": "marcamacarrao1",
-        "productId": "macarrao"
+        month: "Jul",
+        brandId: "marcacalca2",
+        productId: "calca",
+        sales: 167
     },
     {
-        "month": 5,
-        "brandId": "marcamacarrao2",
-        "productId": "macarrao"
+        month: "Aug",
+        brandId: "marcacalca2",
+        productId: "calca",
+        sales: 200
     },
     {
-        "month": 9,
-        "brandId": "marcamacarrao3",
-        "productId": "macarrao"
+        month: "Sep",
+        brandId: "marcacalca2",
+        productId: "calca",
+        sales: 273
     },
     {
-        "month": 3,
-        "brandId": "marcamaca1",
-        "productId": "maca"
+        month: "Oct",
+        brandId: "marcacalca2",
+        productId: "calca",
+        sales: 640
     },
     {
-        "month": 9,
-        "brandId": "marcamaca2",
-        "productId": "maca"
+        month: "Nov",
+        brandId: "marcacalca2",
+        productId: "calca",
+        sales: 625
     },
     {
-        "month": 3,
-        "brandId": "marcamaca3",
-        "productId": "maca"
+        month: "Dec",
+        brandId: "marcacalca2",
+        productId: "calca",
+        sales: 833
     },
     {
-        "month": 1,
-        "brandId": "marcacarne1",
-        "productId": "carne"
+        month: "Jan",
+        brandId: "marcacalca3",
+        productId: "calca",
+        sales: 360
     },
     {
-        "month": 9,
-        "brandId": "marcacarne2",
-        "productId": "carne"
+        month: "Feb",
+        brandId: "marcacalca3",
+        productId: "calca",
+        sales: 475
     },
     {
-        "month": 6,
-        "brandId": "marcacarne3",
-        "productId": "carne"
+        month: "Mar",
+        brandId: "marcacalca3",
+        productId: "calca",
+        sales: 308
     },
     {
-        "month": 11,
-        "brandId": "marcacamisa1",
-        "productId": "camisa"
+        month: "Apr",
+        brandId: "marcacalca3",
+        productId: "calca",
+        sales: 872
     },
     {
-        "month": 11,
-        "brandId": "marcacamisa2",
-        "productId": "camisa"
+        month: "May",
+        brandId: "marcacalca3",
+        productId: "calca",
+        sales: 235
     },
     {
-        "month": 7,
-        "brandId": "marcacamisa3",
-        "productId": "camisa"
+        month: "Jun",
+        brandId: "marcacalca3",
+        productId: "calca",
+        sales: 529
     },
     {
-        "month": 8,
-        "brandId": "marcacalca1",
-        "productId": "calca"
+        month: "Jul",
+        brandId: "marcacalca3",
+        productId: "calca",
+        sales: 633
     },
     {
-        "month": 11,
-        "brandId": "marcacalca2",
-        "productId": "calca"
+        month: "Aug",
+        brandId: "marcacalca3",
+        productId: "calca",
+        sales: 837
     },
     {
-        "month": 1,
-        "brandId": "marcacalca3",
-        "productId": "calca"
+        month: "Sep",
+        brandId: "marcacalca3",
+        productId: "calca",
+        sales: 791
     },
     {
-        "month": 6,
-        "brandId": "marcasapato1",
-        "productId": "sapato"
+        month: "Oct",
+        brandId: "marcacalca3",
+        productId: "calca",
+        sales: 166
     },
     {
-        "month": 8,
-        "brandId": "marcasapato2",
-        "productId": "sapato"
+        month: "Nov",
+        brandId: "marcacalca3",
+        productId: "calca",
+        sales: 821
     },
     {
-        "month": 8,
-        "brandId": "marcasapato3",
-        "productId": "sapato"
+        month: "Dec",
+        brandId: "marcacalca3",
+        productId: "calca",
+        sales: 91
     },
     {
-        "month": 10,
-        "brandId": "marcasagua1",
-        "productId": "agua"
+        month: "Jan",
+        brandId: "marcasapato1",
+        productId: "sapato",
+        sales: 748
     },
     {
-        "month": 1,
-        "brandId": "marcaagua2",
-        "productId": "agua"
+        month: "Feb",
+        brandId: "marcasapato1",
+        productId: "sapato",
+        sales: 389
     },
     {
-        "month": 11,
-        "brandId": "marcaagua3",
-        "productId": "agua"
+        month: "Mar",
+        brandId: "marcasapato1",
+        productId: "sapato",
+        sales: 315
     },
     {
-        "month": 5,
-        "brandId": "marcasuco1",
-        "productId": "suco"
+        month: "Apr",
+        brandId: "marcasapato1",
+        productId: "sapato",
+        sales: 490
     },
     {
-        "month": 10,
-        "brandId": "marcasuco2",
-        "productId": "suco"
+        month: "May",
+        brandId: "marcasapato1",
+        productId: "sapato",
+        sales: 819
     },
     {
-        "month": 1,
-        "brandId": "marcasuco3",
-        "productId": "suco"
+        month: "Jun",
+        brandId: "marcasapato1",
+        productId: "sapato",
+        sales: 95
     },
     {
-        "month": 6,
-        "brandId": "marcaleite1",
-        "productId": "leite"
+        month: "Jul",
+        brandId: "marcasapato1",
+        productId: "sapato",
+        sales: 190
     },
     {
-        "month": 11,
-        "brandId": "marcaleite2",
-        "productId": "leite"
+        month: "Aug",
+        brandId: "marcasapato1",
+        productId: "sapato",
+        sales: 976
     },
     {
-        "month": 10,
-        "brandId": "marcaleite3",
-        "productId": "leite"
+        month: "Sep",
+        brandId: "marcasapato1",
+        productId: "sapato",
+        sales: 703
     },
     {
-        "month": 3,
-        "brandId": "marcamacarrao1",
-        "productId": "macarrao"
+        month: "Oct",
+        brandId: "marcasapato1",
+        productId: "sapato",
+        sales: 246
     },
     {
-        "month": 3,
-        "brandId": "marcamacarrao2",
-        "productId": "macarrao"
+        month: "Nov",
+        brandId: "marcasapato1",
+        productId: "sapato",
+        sales: 342
     },
     {
-        "month": 2,
-        "brandId": "marcamacarrao3",
-        "productId": "macarrao"
+        month: "Dec",
+        brandId: "marcasapato1",
+        productId: "sapato",
+        sales: 833
     },
     {
-        "month": 1,
-        "brandId": "marcamaca1",
-        "productId": "maca"
+        month: "Jan",
+        brandId: "marcasapato2",
+        productId: "sapato",
+        sales: 984
     },
     {
-        "month": 4,
-        "brandId": "marcamaca2",
-        "productId": "maca"
+        month: "Feb",
+        brandId: "marcasapato2",
+        productId: "sapato",
+        sales: 648
     },
     {
-        "month": 3,
-        "brandId": "marcamaca3",
-        "productId": "maca"
+        month: "Mar",
+        brandId: "marcasapato2",
+        productId: "sapato",
+        sales: 4
     },
     {
-        "month": 7,
-        "brandId": "marcacarne1",
-        "productId": "carne"
+        month: "Apr",
+        brandId: "marcasapato2",
+        productId: "sapato",
+        sales: 301
     },
     {
-        "month": 4,
-        "brandId": "marcacarne2",
-        "productId": "carne"
+        month: "May",
+        brandId: "marcasapato2",
+        productId: "sapato",
+        sales: 532
     },
     {
-        "month": 9,
-        "brandId": "marcacarne3",
-        "productId": "carne"
+        month: "Jun",
+        brandId: "marcasapato2",
+        productId: "sapato",
+        sales: 697
     },
     {
-        "month": 6,
-        "brandId": "marcacamisa1",
-        "productId": "camisa"
+        month: "Jul",
+        brandId: "marcasapato2",
+        productId: "sapato",
+        sales: 877
     },
     {
-        "month": 10,
-        "brandId": "marcacamisa2",
-        "productId": "camisa"
+        month: "Aug",
+        brandId: "marcasapato2",
+        productId: "sapato",
+        sales: 937
     },
     {
-        "month": 8,
-        "brandId": "marcacamisa3",
-        "productId": "camisa"
+        month: "Sep",
+        brandId: "marcasapato2",
+        productId: "sapato",
+        sales: 615
     },
     {
-        "month": 8,
-        "brandId": "marcacalca1",
-        "productId": "calca"
+        month: "Oct",
+        brandId: "marcasapato2",
+        productId: "sapato",
+        sales: 664
     },
     {
-        "month": 9,
-        "brandId": "marcacalca2",
-        "productId": "calca"
+        month: "Nov",
+        brandId: "marcasapato2",
+        productId: "sapato",
+        sales: 754
     },
     {
-        "month": 10,
-        "brandId": "marcacalca3",
-        "productId": "calca"
+        month: "Dec",
+        brandId: "marcasapato2",
+        productId: "sapato",
+        sales: 904
     },
     {
-        "month": 5,
-        "brandId": "marcasapato1",
-        "productId": "sapato"
+        month: "Jan",
+        brandId: "marcasapato3",
+        productId: "sapato",
+        sales: 86
     },
     {
-        "month": 7,
-        "brandId": "marcasapato2",
-        "productId": "sapato"
+        month: "Feb",
+        brandId: "marcasapato3",
+        productId: "sapato",
+        sales: 986
     },
     {
-        "month": 2,
-        "brandId": "marcasapato3",
-        "productId": "sapato"
+        month: "Mar",
+        brandId: "marcasapato3",
+        productId: "sapato",
+        sales: 227
     },
     {
-        "month": 3,
-        "brandId": "marcasagua1",
-        "productId": "agua"
+        month: "Apr",
+        brandId: "marcasapato3",
+        productId: "sapato",
+        sales: 909
     },
     {
-        "month": 10,
-        "brandId": "marcaagua2",
-        "productId": "agua"
+        month: "May",
+        brandId: "marcasapato3",
+        productId: "sapato",
+        sales: 880
     },
     {
-        "month": 2,
-        "brandId": "marcaagua3",
-        "productId": "agua"
+        month: "Jun",
+        brandId: "marcasapato3",
+        productId: "sapato",
+        sales: 451
     },
     {
-        "month": 6,
-        "brandId": "marcasuco1",
-        "productId": "suco"
+        month: "Jul",
+        brandId: "marcasapato3",
+        productId: "sapato",
+        sales: 459
     },
     {
-        "month": 6,
-        "brandId": "marcasuco2",
-        "productId": "suco"
+        month: "Aug",
+        brandId: "marcasapato3",
+        productId: "sapato",
+        sales: 525
     },
     {
-        "month": 2,
-        "brandId": "marcasuco3",
-        "productId": "suco"
+        month: "Sep",
+        brandId: "marcasapato3",
+        productId: "sapato",
+        sales: 92
     },
     {
-        "month": 9,
-        "brandId": "marcaleite1",
-        "productId": "leite"
+        month: "Oct",
+        brandId: "marcasapato3",
+        productId: "sapato",
+        sales: 760
     },
     {
-        "month": 6,
-        "brandId": "marcaleite2",
-        "productId": "leite"
+        month: "Nov",
+        brandId: "marcasapato3",
+        productId: "sapato",
+        sales: 783
     },
     {
-        "month": 1,
-        "brandId": "marcaleite3",
-        "productId": "leite"
+        month: "Dec",
+        brandId: "marcasapato3",
+        productId: "sapato",
+        sales: 695
     },
     {
-        "month": 6,
-        "brandId": "marcamacarrao1",
-        "productId": "macarrao"
+        month: "Jan",
+        brandId: "marcasagua1",
+        productId: "agua",
+        sales: 149
     },
     {
-        "month": 7,
-        "brandId": "marcamacarrao2",
-        "productId": "macarrao"
+        month: "Feb",
+        brandId: "marcasagua1",
+        productId: "agua",
+        sales: 731
     },
     {
-        "month": 4,
-        "brandId": "marcamacarrao3",
-        "productId": "macarrao"
+        month: "Mar",
+        brandId: "marcasagua1",
+        productId: "agua",
+        sales: 592
     },
     {
-        "month": 4,
-        "brandId": "marcamaca1",
-        "productId": "maca"
+        month: "Apr",
+        brandId: "marcasagua1",
+        productId: "agua",
+        sales: 513
     },
     {
-        "month": 3,
-        "brandId": "marcamaca2",
-        "productId": "maca"
+        month: "May",
+        brandId: "marcasagua1",
+        productId: "agua",
+        sales: 531
     },
     {
-        "month": 9,
-        "brandId": "marcamaca3",
-        "productId": "maca"
+        month: "Jun",
+        brandId: "marcasagua1",
+        productId: "agua",
+        sales: 756
     },
     {
-        "month": 5,
-        "brandId": "marcacarne1",
-        "productId": "carne"
+        month: "Jul",
+        brandId: "marcasagua1",
+        productId: "agua",
+        sales: 542
     },
     {
-        "month": 5,
-        "brandId": "marcacarne2",
-        "productId": "carne"
+        month: "Aug",
+        brandId: "marcasagua1",
+        productId: "agua",
+        sales: 5
     },
     {
-        "month": 11,
-        "brandId": "marcacarne3",
-        "productId": "carne"
+        month: "Sep",
+        brandId: "marcasagua1",
+        productId: "agua",
+        sales: 771
     },
     {
-        "month": 2,
-        "brandId": "marcacamisa1",
-        "productId": "camisa"
+        month: "Oct",
+        brandId: "marcasagua1",
+        productId: "agua",
+        sales: 553
     },
     {
-        "month": 5,
-        "brandId": "marcacamisa2",
-        "productId": "camisa"
+        month: "Nov",
+        brandId: "marcasagua1",
+        productId: "agua",
+        sales: 178
     },
     {
-        "month": 2,
-        "brandId": "marcacamisa3",
-        "productId": "camisa"
+        month: "Dec",
+        brandId: "marcasagua1",
+        productId: "agua",
+        sales: 402
     },
     {
-        "month": 1,
-        "brandId": "marcacalca1",
-        "productId": "calca"
+        month: "Jan",
+        brandId: "marcaagua2",
+        productId: "agua",
+        sales: 989
     },
     {
-        "month": 4,
-        "brandId": "marcacalca2",
-        "productId": "calca"
+        month: "Feb",
+        brandId: "marcaagua2",
+        productId: "agua",
+        sales: 431
     },
     {
-        "month": 3,
-        "brandId": "marcacalca3",
-        "productId": "calca"
+        month: "Mar",
+        brandId: "marcaagua2",
+        productId: "agua",
+        sales: 437
     },
     {
-        "month": 6,
-        "brandId": "marcasapato1",
-        "productId": "sapato"
+        month: "Apr",
+        brandId: "marcaagua2",
+        productId: "agua",
+        sales: 408
     },
     {
-        "month": 2,
-        "brandId": "marcasapato2",
-        "productId": "sapato"
+        month: "May",
+        brandId: "marcaagua2",
+        productId: "agua",
+        sales: 269
     },
     {
-        "month": 11,
-        "brandId": "marcasapato3",
-        "productId": "sapato"
+        month: "Jun",
+        brandId: "marcaagua2",
+        productId: "agua",
+        sales: 804
     },
     {
-        "month": 5,
-        "brandId": "marcasagua1",
-        "productId": "agua"
+        month: "Jul",
+        brandId: "marcaagua2",
+        productId: "agua",
+        sales: 912
     },
     {
-        "month": 1,
-        "brandId": "marcaagua2",
-        "productId": "agua"
+        month: "Aug",
+        brandId: "marcaagua2",
+        productId: "agua",
+        sales: 813
     },
     {
-        "month": 8,
-        "brandId": "marcaagua3",
-        "productId": "agua"
+        month: "Sep",
+        brandId: "marcaagua2",
+        productId: "agua",
+        sales: 503
     },
     {
-        "month": 10,
-        "brandId": "marcasuco1",
-        "productId": "suco"
+        month: "Oct",
+        brandId: "marcaagua2",
+        productId: "agua",
+        sales: 342
     },
     {
-        "month": 10,
-        "brandId": "marcasuco2",
-        "productId": "suco"
+        month: "Nov",
+        brandId: "marcaagua2",
+        productId: "agua",
+        sales: 251
     },
     {
-        "month": 6,
-        "brandId": "marcasuco3",
-        "productId": "suco"
+        month: "Dec",
+        brandId: "marcaagua2",
+        productId: "agua",
+        sales: 211
     },
     {
-        "month": 4,
-        "brandId": "marcaleite1",
-        "productId": "leite"
+        month: "Jan",
+        brandId: "marcaagua3",
+        productId: "agua",
+        sales: 267
     },
     {
-        "month": 1,
-        "brandId": "marcaleite2",
-        "productId": "leite"
+        month: "Feb",
+        brandId: "marcaagua3",
+        productId: "agua",
+        sales: 386
     },
     {
-        "month": 2,
-        "brandId": "marcaleite3",
-        "productId": "leite"
+        month: "Mar",
+        brandId: "marcaagua3",
+        productId: "agua",
+        sales: 442
     },
     {
-        "month": 9,
-        "brandId": "marcamacarrao1",
-        "productId": "macarrao"
+        month: "Apr",
+        brandId: "marcaagua3",
+        productId: "agua",
+        sales: 687
     },
     {
-        "month": 7,
-        "brandId": "marcamacarrao2",
-        "productId": "macarrao"
+        month: "May",
+        brandId: "marcaagua3",
+        productId: "agua",
+        sales: 47
     },
     {
-        "month": 11,
-        "brandId": "marcamacarrao3",
-        "productId": "macarrao"
+        month: "Jun",
+        brandId: "marcaagua3",
+        productId: "agua",
+        sales: 406
     },
     {
-        "month": 7,
-        "brandId": "marcamaca1",
-        "productId": "maca"
+        month: "Jul",
+        brandId: "marcaagua3",
+        productId: "agua",
+        sales: 518
     },
     {
-        "month": 1,
-        "brandId": "marcamaca2",
-        "productId": "maca"
+        month: "Aug",
+        brandId: "marcaagua3",
+        productId: "agua",
+        sales: 501
     },
     {
-        "month": 8,
-        "brandId": "marcamaca3",
-        "productId": "maca"
+        month: "Sep",
+        brandId: "marcaagua3",
+        productId: "agua",
+        sales: 983
     },
     {
-        "month": 7,
-        "brandId": "marcacarne1",
-        "productId": "carne"
+        month: "Oct",
+        brandId: "marcaagua3",
+        productId: "agua",
+        sales: 68
     },
     {
-        "month": 3,
-        "brandId": "marcacarne2",
-        "productId": "carne"
+        month: "Nov",
+        brandId: "marcaagua3",
+        productId: "agua",
+        sales: 350
     },
     {
-        "month": 6,
-        "brandId": "marcacarne3",
-        "productId": "carne"
+        month: "Dec",
+        brandId: "marcaagua3",
+        productId: "agua",
+        sales: 844
     },
     {
-        "month": 1,
-        "brandId": "marcacamisa1",
-        "productId": "camisa"
+        month: "Jan",
+        brandId: "marcasuco1",
+        productId: "suco",
+        sales: 350
     },
     {
-        "month": 2,
-        "brandId": "marcacamisa2",
-        "productId": "camisa"
+        month: "Feb",
+        brandId: "marcasuco1",
+        productId: "suco",
+        sales: 441
     },
     {
-        "month": 4,
-        "brandId": "marcacamisa3",
-        "productId": "camisa"
+        month: "Mar",
+        brandId: "marcasuco1",
+        productId: "suco",
+        sales: 459
     },
     {
-        "month": 5,
-        "brandId": "marcacalca1",
-        "productId": "calca"
+        month: "Apr",
+        brandId: "marcasuco1",
+        productId: "suco",
+        sales: 538
     },
     {
-        "month": 7,
-        "brandId": "marcacalca2",
-        "productId": "calca"
+        month: "May",
+        brandId: "marcasuco1",
+        productId: "suco",
+        sales: 166
     },
     {
-        "month": 4,
-        "brandId": "marcacalca3",
-        "productId": "calca"
+        month: "Jun",
+        brandId: "marcasuco1",
+        productId: "suco",
+        sales: 262
     },
     {
-        "month": 8,
-        "brandId": "marcasapato1",
-        "productId": "sapato"
+        month: "Jul",
+        brandId: "marcasuco1",
+        productId: "suco",
+        sales: 880
     },
     {
-        "month": 8,
-        "brandId": "marcasapato2",
-        "productId": "sapato"
+        month: "Aug",
+        brandId: "marcasuco1",
+        productId: "suco",
+        sales: 460
     },
     {
-        "month": 9,
-        "brandId": "marcasapato3",
-        "productId": "sapato"
+        month: "Sep",
+        brandId: "marcasuco1",
+        productId: "suco",
+        sales: 943
     },
     {
-        "month": 6,
-        "brandId": "marcasagua1",
-        "productId": "agua"
+        month: "Oct",
+        brandId: "marcasuco1",
+        productId: "suco",
+        sales: 439
     },
     {
-        "month": 6,
-        "brandId": "marcaagua2",
-        "productId": "agua"
+        month: "Nov",
+        brandId: "marcasuco1",
+        productId: "suco",
+        sales: 229
     },
     {
-        "month": 7,
-        "brandId": "marcaagua3",
-        "productId": "agua"
+        month: "Dec",
+        brandId: "marcasuco1",
+        productId: "suco",
+        sales: 352
     },
     {
-        "month": 9,
-        "brandId": "marcasuco1",
-        "productId": "suco"
+        month: "Jan",
+        brandId: "marcasuco2",
+        productId: "suco",
+        sales: 307
     },
     {
-        "month": 2,
-        "brandId": "marcasuco2",
-        "productId": "suco"
+        month: "Feb",
+        brandId: "marcasuco2",
+        productId: "suco",
+        sales: 80
     },
     {
-        "month": 5,
-        "brandId": "marcasuco3",
-        "productId": "suco"
+        month: "Mar",
+        brandId: "marcasuco2",
+        productId: "suco",
+        sales: 68
     },
     {
-        "month": 5,
-        "brandId": "marcaleite1",
-        "productId": "leite"
+        month: "Apr",
+        brandId: "marcasuco2",
+        productId: "suco",
+        sales: 256
     },
     {
-        "month": 4,
-        "brandId": "marcaleite2",
-        "productId": "leite"
+        month: "May",
+        brandId: "marcasuco2",
+        productId: "suco",
+        sales: 393
     },
     {
-        "month": 6,
-        "brandId": "marcaleite3",
-        "productId": "leite"
+        month: "Jun",
+        brandId: "marcasuco2",
+        productId: "suco",
+        sales: 183
     },
     {
-        "month": 5,
-        "brandId": "marcamacarrao1",
-        "productId": "macarrao"
+        month: "Jul",
+        brandId: "marcasuco2",
+        productId: "suco",
+        sales: 624
     },
     {
-        "month": 9,
-        "brandId": "marcamacarrao2",
-        "productId": "macarrao"
+        month: "Aug",
+        brandId: "marcasuco2",
+        productId: "suco",
+        sales: 64
     },
     {
-        "month": 7,
-        "brandId": "marcamacarrao3",
-        "productId": "macarrao"
+        month: "Sep",
+        brandId: "marcasuco2",
+        productId: "suco",
+        sales: 158
     },
     {
-        "month": 9,
-        "brandId": "marcamaca1",
-        "productId": "maca"
+        month: "Oct",
+        brandId: "marcasuco2",
+        productId: "suco",
+        sales: 56
     },
     {
-        "month": 11,
-        "brandId": "marcamaca2",
-        "productId": "maca"
+        month: "Nov",
+        brandId: "marcasuco2",
+        productId: "suco",
+        sales: 355
     },
     {
-        "month": 3,
-        "brandId": "marcamaca3",
-        "productId": "maca"
+        month: "Dec",
+        brandId: "marcasuco2",
+        productId: "suco",
+        sales: 735
     },
     {
-        "month": 4,
-        "brandId": "marcacarne1",
-        "productId": "carne"
+        month: "Jan",
+        brandId: "marcasuco3",
+        productId: "suco",
+        sales: 264
     },
     {
-        "month": 10,
-        "brandId": "marcacarne2",
-        "productId": "carne"
+        month: "Feb",
+        brandId: "marcasuco3",
+        productId: "suco",
+        sales: 375
     },
     {
-        "month": 6,
-        "brandId": "marcacarne3",
-        "productId": "carne"
+        month: "Mar",
+        brandId: "marcasuco3",
+        productId: "suco",
+        sales: 195
     },
     {
-        "month": 7,
-        "brandId": "marcacamisa1",
-        "productId": "camisa"
+        month: "Apr",
+        brandId: "marcasuco3",
+        productId: "suco",
+        sales: 80
     },
     {
-        "month": 5,
-        "brandId": "marcacamisa2",
-        "productId": "camisa"
+        month: "May",
+        brandId: "marcasuco3",
+        productId: "suco",
+        sales: 722
     },
     {
-        "month": 8,
-        "brandId": "marcacamisa3",
-        "productId": "camisa"
+        month: "Jun",
+        brandId: "marcasuco3",
+        productId: "suco",
+        sales: 868
     },
     {
-        "month": 3,
-        "brandId": "marcacalca1",
-        "productId": "calca"
+        month: "Jul",
+        brandId: "marcasuco3",
+        productId: "suco",
+        sales: 261
     },
     {
-        "month": 6,
-        "brandId": "marcacalca2",
-        "productId": "calca"
+        month: "Aug",
+        brandId: "marcasuco3",
+        productId: "suco",
+        sales: 681
     },
     {
-        "month": 9,
-        "brandId": "marcacalca3",
-        "productId": "calca"
+        month: "Sep",
+        brandId: "marcasuco3",
+        productId: "suco",
+        sales: 42
     },
     {
-        "month": 4,
-        "brandId": "marcasapato1",
-        "productId": "sapato"
+        month: "Oct",
+        brandId: "marcasuco3",
+        productId: "suco",
+        sales: 948
     },
     {
-        "month": 1,
-        "brandId": "marcasapato2",
-        "productId": "sapato"
+        month: "Nov",
+        brandId: "marcasuco3",
+        productId: "suco",
+        sales: 639
     },
     {
-        "month": 1,
-        "brandId": "marcasapato3",
-        "productId": "sapato"
+        month: "Dec",
+        brandId: "marcasuco3",
+        productId: "suco",
+        sales: 753
     },
     {
-        "month": 2,
-        "brandId": "marcasagua1",
-        "productId": "agua"
+        month: "Jan",
+        brandId: "marcaleite1",
+        productId: "leite",
+        sales: 322
     },
     {
-        "month": 1,
-        "brandId": "marcaagua2",
-        "productId": "agua"
+        month: "Feb",
+        brandId: "marcaleite1",
+        productId: "leite",
+        sales: 479
     },
     {
-        "month": 8,
-        "brandId": "marcaagua3",
-        "productId": "agua"
+        month: "Mar",
+        brandId: "marcaleite1",
+        productId: "leite",
+        sales: 965
     },
     {
-        "month": 9,
-        "brandId": "marcasuco1",
-        "productId": "suco"
+        month: "Apr",
+        brandId: "marcaleite1",
+        productId: "leite",
+        sales: 907
     },
     {
-        "month": 10,
-        "brandId": "marcasuco2",
-        "productId": "suco"
+        month: "May",
+        brandId: "marcaleite1",
+        productId: "leite",
+        sales: 910
     },
     {
-        "month": 9,
-        "brandId": "marcasuco3",
-        "productId": "suco"
+        month: "Jun",
+        brandId: "marcaleite1",
+        productId: "leite",
+        sales: 156
     },
     {
-        "month": 4,
-        "brandId": "marcaleite1",
-        "productId": "leite"
+        month: "Jul",
+        brandId: "marcaleite1",
+        productId: "leite",
+        sales: 301
     },
     {
-        "month": 3,
-        "brandId": "marcaleite2",
-        "productId": "leite"
+        month: "Aug",
+        brandId: "marcaleite1",
+        productId: "leite",
+        sales: 640
     },
     {
-        "month": 6,
-        "brandId": "marcaleite3",
-        "productId": "leite"
+        month: "Sep",
+        brandId: "marcaleite1",
+        productId: "leite",
+        sales: 641
     },
     {
-        "month": 1,
-        "brandId": "marcamacarrao1",
-        "productId": "macarrao"
+        month: "Oct",
+        brandId: "marcaleite1",
+        productId: "leite",
+        sales: 535
     },
     {
-        "month": 10,
-        "brandId": "marcamacarrao2",
-        "productId": "macarrao"
+        month: "Nov",
+        brandId: "marcaleite1",
+        productId: "leite",
+        sales: 573
     },
     {
-        "month": 8,
-        "brandId": "marcamacarrao3",
-        "productId": "macarrao"
+        month: "Dec",
+        brandId: "marcaleite1",
+        productId: "leite",
+        sales: 297
     },
     {
-        "month": 11,
-        "brandId": "marcamaca1",
-        "productId": "maca"
+        month: "Jan",
+        brandId: "marcaleite2",
+        productId: "leite",
+        sales: 536
     },
     {
-        "month": 9,
-        "brandId": "marcamaca2",
-        "productId": "maca"
+        month: "Feb",
+        brandId: "marcaleite2",
+        productId: "leite",
+        sales: 910
     },
     {
-        "month": 11,
-        "brandId": "marcamaca3",
-        "productId": "maca"
+        month: "Mar",
+        brandId: "marcaleite2",
+        productId: "leite",
+        sales: 577
     },
     {
-        "month": 7,
-        "brandId": "marcacarne1",
-        "productId": "carne"
+        month: "Apr",
+        brandId: "marcaleite2",
+        productId: "leite",
+        sales: 719
     },
     {
-        "month": 2,
-        "brandId": "marcacarne2",
-        "productId": "carne"
+        month: "May",
+        brandId: "marcaleite2",
+        productId: "leite",
+        sales: 6
     },
     {
-        "month": 3,
-        "brandId": "marcacarne3",
-        "productId": "carne"
+        month: "Jun",
+        brandId: "marcaleite2",
+        productId: "leite",
+        sales: 351
     },
     {
-        "month": 11,
-        "brandId": "marcacamisa1",
-        "productId": "camisa"
+        month: "Jul",
+        brandId: "marcaleite2",
+        productId: "leite",
+        sales: 692
     },
     {
-        "month": 11,
-        "brandId": "marcacamisa2",
-        "productId": "camisa"
+        month: "Aug",
+        brandId: "marcaleite2",
+        productId: "leite",
+        sales: 329
     },
     {
-        "month": 6,
-        "brandId": "marcacamisa3",
-        "productId": "camisa"
+        month: "Sep",
+        brandId: "marcaleite2",
+        productId: "leite",
+        sales: 305
     },
     {
-        "month": 10,
-        "brandId": "marcacalca1",
-        "productId": "calca"
+        month: "Oct",
+        brandId: "marcaleite2",
+        productId: "leite",
+        sales: 561
     },
     {
-        "month": 4,
-        "brandId": "marcacalca2",
-        "productId": "calca"
+        month: "Nov",
+        brandId: "marcaleite2",
+        productId: "leite",
+        sales: 621
     },
     {
-        "month": 9,
-        "brandId": "marcacalca3",
-        "productId": "calca"
+        month: "Dec",
+        brandId: "marcaleite2",
+        productId: "leite",
+        sales: 327
     },
     {
-        "month": 5,
-        "brandId": "marcasapato1",
-        "productId": "sapato"
+        month: "Jan",
+        brandId: "marcaleite3",
+        productId: "leite",
+        sales: 332
     },
     {
-        "month": 7,
-        "brandId": "marcasapato2",
-        "productId": "sapato"
+        month: "Feb",
+        brandId: "marcaleite3",
+        productId: "leite",
+        sales: 856
     },
     {
-        "month": 4,
-        "brandId": "marcasapato3",
-        "productId": "sapato"
+        month: "Mar",
+        brandId: "marcaleite3",
+        productId: "leite",
+        sales: 709
     },
     {
-        "month": 5,
-        "brandId": "marcasagua1",
-        "productId": "agua"
+        month: "Apr",
+        brandId: "marcaleite3",
+        productId: "leite",
+        sales: 631
     },
     {
-        "month": 11,
-        "brandId": "marcaagua2",
-        "productId": "agua"
+        month: "May",
+        brandId: "marcaleite3",
+        productId: "leite",
+        sales: 563
     },
     {
-        "month": 6,
-        "brandId": "marcaagua3",
-        "productId": "agua"
+        month: "Jun",
+        brandId: "marcaleite3",
+        productId: "leite",
+        sales: 304
     },
     {
-        "month": 2,
-        "brandId": "marcasuco1",
-        "productId": "suco"
+        month: "Jul",
+        brandId: "marcaleite3",
+        productId: "leite",
+        sales: 333
     },
     {
-        "month": 5,
-        "brandId": "marcasuco2",
-        "productId": "suco"
+        month: "Aug",
+        brandId: "marcaleite3",
+        productId: "leite",
+        sales: 200
     },
     {
-        "month": 11,
-        "brandId": "marcasuco3",
-        "productId": "suco"
+        month: "Sep",
+        brandId: "marcaleite3",
+        productId: "leite",
+        sales: 851
     },
     {
-        "month": 11,
-        "brandId": "marcaleite1",
-        "productId": "leite"
+        month: "Oct",
+        brandId: "marcaleite3",
+        productId: "leite",
+        sales: 884
     },
     {
-        "month": 8,
-        "brandId": "marcaleite2",
-        "productId": "leite"
+        month: "Nov",
+        brandId: "marcaleite3",
+        productId: "leite",
+        sales: 379
     },
     {
-        "month": 2,
-        "brandId": "marcaleite3",
-        "productId": "leite"
+        month: "Dec",
+        brandId: "marcaleite3",
+        productId: "leite",
+        sales: 871
     }
 ]
-
-export function generateSales() {
-    const sales = []
-    for (let i = 0; i < 12; i++) {
-        brand.map((o) => {
-            let sale = {
-                month: parseInt(Math.random() * (12 - 1) + 1),
-                brandId: o.id,
-                productId: o.productId,
-            }
-            sales.push(sale)
-        })   
-    }
-
-    return sales
-}
 
 export default sales
