@@ -1,0 +1,12 @@
+html, body {
+  font-family: 'Roboto', sans-serif !important;
+  margin: 0;
+  padding: 0;
+  display: block;
+  background-color:#DDDDDD;
+}
+
+@import './styles/global.scss';
+
+/* components */
+@import './components/Sidebar/Sidebar.scss';
